@@ -1,0 +1,26 @@
+{
+  "name": "cmsutilizationreport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hareeshnumo/cmsUtilizationReport.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hareeshnumo/cmsUtilizationReport/issues"
+  },
+  "homepage": "https://github.com/hareeshnumo/cmsUtilizationReport#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "mongoose": "^6.4.6",
+    "mysql": "^2.18.1",
+    "xlsx-populate": "^1.21.0"
+  }
+}
