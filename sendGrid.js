@@ -5,7 +5,7 @@ const sendMail=async(email)=>{
   pathToAttachment = `${__dirname}/customerUtilization.xlsx`;
   attachment = fs.readFileSync(pathToAttachment).toString("base64");
     const mailOptions = {
-        from: 'noreplay@numocity.com',
+        from: 'noreply@numocity.com',
         subject: 'utilization Report',
         to: email,
         html:mailContent,

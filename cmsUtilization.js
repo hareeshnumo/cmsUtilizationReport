@@ -33,8 +33,13 @@ const cmsUtilData=async()=>{
     }
     const listData=await findListOfCpInfo()
     const countResponse= await countCmsUtilizationData();
-    const excel=await excelCreation(listData,countResponse,utilMatrix)
+    envInfo={
+        host:environment,
+        hosturl
+    }
+    const excel=await excelCreation(listData,countResponse,utilMatrix,envInfo)
     await sendMail(email,excel);
+    process.exit(0);
 }
 
 const countCmsUtilizationData=async()=>{
@@ -120,4 +125,7 @@ const mysqlObj={
     user: process.env.user,
     database: 'assetdb',
 };
+
+
 cmsUtilData(environment, email);
+
