@@ -7,7 +7,8 @@ const envHostUrlMapping={
     TEST_CMS_3: 'testcms3.numocity.in',
     AARGO: 'aargocms.numocity.com',
     KURRENT: 'kurrentchargecms.numocity.com',
-    DEV:'devfusion.numocity.in'
+    DEV:'devfusion.numocity.in',
+    FUSION_TEST:'cmsfusiontest.numocity.in'
 }
 
 
@@ -70,7 +71,7 @@ const findTotalChargePoint=async()=>{
 const findTotalAcOrDc=async(type)=>{
     const tableName='assetdb.connector_model_table'
     let queryOps=countQueryWithCondition(tableName);
-    queryOps=`SELECT COUNT(ConnectorModelID) AS count FROM assetdb.connector_model_table WHERE ConnectorModelCurrentType=?`
+    queryOps=`select COUNT(ChargePointConnectorID) as count from chargepoint_connector_table cp left join connector_model_table cm on cm.ConnectorModelID = cp.ConnectorModelID where ConnectorModelCurrentType=?`
     const response= await getDataFromDb(queryOps, [type], mysqlObj)
     if(!response|| response.error){
         return 'no response from connector_model_table'

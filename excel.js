@@ -10,8 +10,8 @@ const excelCreation=async (listData,countResponse,utilMatrix, envInfo)=>{
     invoiceExcel.cell('A10').value(countResponse.totalChargePoint);
     invoiceExcel.cell('B10').value(countResponse.totalAc);
     invoiceExcel.cell('C10').value(countResponse.totalDc);
-    invoiceExcel.cell('D10').value(countResponse.licensePurchased);
-    invoiceExcel.cell('E10').value(countResponse.licenseUtilized);
+    invoiceExcel.cell('D10').value(countResponse.licensePurchased?countResponse.licensePurchased:null);
+    invoiceExcel.cell('E10').value(countResponse.licenseUtilized?countResponse.licenseUtilized:null);
     invoiceExcel.cell('A12').value(countResponse.total_CCS);
     invoiceExcel.cell('B12').value(countResponse.total_GBT);
     invoiceExcel.cell('C12').value(countResponse.total_Type_2);
@@ -25,7 +25,6 @@ const excelCreation=async (listData,countResponse,utilMatrix, envInfo)=>{
       invoiceExcel.cell(`B${i+row}`).value(listData[i].ChargerModelType);
       invoiceExcel.cell(`C${i+row}`).value(listData[i].ChargerModelVendor);
       invoiceExcel.cell(`D${i+row}`).value(listData[i].ChargerModelName);
-      invoiceExcel.cell(`E${i+row}`).value(listData[i].invoiceId);
     }
     const outputExcel=await workbook.toFileAsync('./customerUtilization.xlsx');
     // const outputExcel=await workbook.outputAsync();
